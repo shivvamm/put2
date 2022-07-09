@@ -41,6 +41,23 @@ html, body {
   border-bottom: 1px solid #000;
 }
 
+.group select {
+    width: 280px;
+    height: 35px;
+    border: 0px;
+    outline: none;
+    font-size: 13px;
+    padding: 0px 10px 0px 10px;
+    border-bottom: 1px solid #aaa;
+    font-family: "Poppins", sans-serif;
+    transition: 0.5s;
+  }
+  
+  .group select:hover {
+    border-bottom: 1px solid #000;
+  }
+  
+
 .group button {
   width: 300px;
   height: 45px;
