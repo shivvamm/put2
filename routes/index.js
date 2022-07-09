@@ -15,6 +15,10 @@ router.get('/', function(req, res, next) {
   res.render('login');
 });
 
+router.get('/index', function(req, res, next) {
+  res.render('index2');
+});
+
 router.get('/register', function(req, res, next) {
   res.render('register');
 });
@@ -29,13 +33,20 @@ router.post('/login', function(req, res, next) {
 if(r =="BF" && psw=="1234"){
   res.render('index',{title:user});
 }
+else{
+  res.redirect('/');
+}
 if(r=="GF"){
   pool.getConnection(function (err,connection){
     connection.query("SELECT * FROM GFBF WHERE NAMES = ? AND PASS = ?", [user, psw], function(err, rows, fields){
-       if(err) throw err;
-       else console.log(rows);
-       var row = JSON.stringify(rows);
-       res.render('index2',{title:user});
+      if (rows.length <= 0) {
+        res.redirect('/')
+    }
+    else { 
+        res.redirect('/index');
+
+
+    }
     });
  });
 }
