@@ -19,9 +19,26 @@ router.get('/register', function(req, res, next) {
   res.render('register');
 });
 
-router.get('/login', function(req, res, next) {
-  
-  res.render('index');
+router.post('/login', function(req, res, next) {
+  var r = req.body.rel;
+  var user =req.body.user;
+  var psw = req.body.pass;
+  console.log(r);
+  console.log(psw);
+  console.log(user);
+if(r =="BF" && psw=="1234"){
+  res.render('index',{title:user});
+}
+if(r=="GF"){
+  pool.getConnection(function (err,connection){
+    connection.query("SELECT * FROM GFBF WHERE NAMES = ? AND PASS = ?", [user, psw], function(err, rows, fields){
+       if(err) throw err;
+       else console.log(rows);
+       var row = JSON.stringify(rows);
+       res.render('index2',{title:user});
+    });
+ });
+}
 });
 
 router.post('/reg', function(req, res, next) {

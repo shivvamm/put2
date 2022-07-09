@@ -12,7 +12,7 @@
 <body>
   <div class="signin">
 
-    <form action="#" method="post" autocomplete="off">
+    <form action="/login" method="post">
 
       <div class="group head">
 
@@ -24,21 +24,21 @@
 
       <div class="group">
 
-        <input type="text" name="username" id="username-field" name="user" placeholder="USERNAME" required>
+        <input type="text" name="user" id="username-field" name="user" placeholder="USERNAME" required>
 
       </div>
 
+      <label for="GF">GF</label>
+      <input type="radio" name="rel"  name="GF" placeholder="GF" value="GF" required>
+      </BR>
+      <input type="radio" name="rel"  name="BF" placeholder="BF" value="BF" required>
+      <label for="BF">BF</label>
+        
+    
       <div class="group">
 
-        <select name="rel" id="cars" form="carform">
-          <option value="gf">GF</option>
-          <option value="bf">BF</option>
-        </select>
-      </div>
-      <div class="group">
 
-
-        <input type="password" name="password" id="password-field" name="pass" placeholder="PASSWORD" required>
+        <input type="password" name="pass" id="password-field" name="pass" placeholder="PASSWORD" required>
 
         <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
 
